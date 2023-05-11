@@ -1,7 +1,5 @@
 queries_count = int(input())
-
 stack = []
-
 for _ in range(queries_count):
     data = input().split()
     query_type = data[0]
