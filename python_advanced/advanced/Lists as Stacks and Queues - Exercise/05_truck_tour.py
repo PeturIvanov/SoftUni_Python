@@ -17,7 +17,8 @@ while circle:
     else:
         gas_in_tank = 0
         index += 1
+        pumps_data.rotate(-1)
         circle = pumps_data.copy()
-        circle.rotate(-1)
+
 
 print(index)
