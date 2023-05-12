@@ -12,11 +12,12 @@ total_cars_passed = 0
 
 while True:
     command = input()
-    green_light_duration_copy = green_light_duration
-    free_window_duration_copy = free_window_duration
 
     if command == "END":
         break
+
+    green_light_duration_copy = green_light_duration
+    free_window_duration_copy = free_window_duration
 
     if command != "green":
         lane_of_cars.append(command)
