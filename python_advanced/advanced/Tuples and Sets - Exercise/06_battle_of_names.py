@@ -1,16 +1,12 @@
-number_of_lines = int(input())
-
 odd_set = set()
 even_set = set()
 
-for row in range(1, number_of_lines + 1):
-    name = input()
+for row in range(1, int(input()) + 1):
 
-    sum_char = sum([ord(char) for char in name]) // row
-    if sum_char % 2 == 0:
-        even_set.add(sum_char)
-    else:
-        odd_set.add(sum_char)
+    sum_char = sum(ord(char) for char in input()) // row
+
+    even_set.add(sum_char) if sum_char % 2 == 0 else odd_set.add(sum_char)
+
 
 odd_sum = sum(odd_set)
 even_sum = sum(even_set)
