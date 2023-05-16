@@ -29,14 +29,6 @@ if milkshakes == 5:
 else:
     print("Not enough milkshakes.")
 
-if chocolates:
-    print(f"Chocolate: {', '.join(str(el)for el in chocolates)}")
-else:
-    print("Chocolate: empty")
+print(f"Chocolate: {', '.join(str(el)for el in chocolates) or 'empty'}")
 
-if cups_of_milk:
-    print(f"Milk: {', '.join(str(el)for el in cups_of_milk)}")
-else:
-    print("Milk: empty")
-
-
+print(f"Milk: {', '.join(str(el)for el in cups_of_milk) or 'empty'}")
