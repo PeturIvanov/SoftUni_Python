@@ -26,8 +26,7 @@ while boxes_of_materials and materials_magic_level:
         boxes_of_materials.append(box + 15)
 
     elif total_magic_level < 0:
-        sum_values = box + magic_level
-        boxes_of_materials.append(sum_values)
+        boxes_of_materials.append(box + magic_level)
 
     else:
         if box != 0:
