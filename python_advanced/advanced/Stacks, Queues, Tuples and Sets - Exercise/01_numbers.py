@@ -1,9 +1,7 @@
 first_sequence = set(int(n) for n in input().split())
 second_sequence = set(int(n) for n in input().split())
 
-number_of_lines = int(input())
-
-for _ in range(number_of_lines):
+for _ in range(int(input())):
     input_data = input().split()
 
     command = input_data[0]
@@ -27,10 +25,7 @@ for _ in range(number_of_lines):
             set(second_sequence.remove(n) for n in numbers_to_remove if n in second_sequence)
 
     else:
-        if len(first_sequence) >= len(second_sequence):
-            print(second_sequence.issubset(first_sequence))
-        else:
-            print(first_sequence.issubset(second_sequence))
+        print(second_sequence.issubset(first_sequence) or first_sequence.issubset(second_sequence))
 
 print(*(sorted(first_sequence)), sep=", ")
 print(*(sorted(second_sequence)), sep=", ")
