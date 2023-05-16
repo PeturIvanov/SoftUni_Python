@@ -4,10 +4,10 @@ boxes_of_materials = deque(int(m) for m in input().split())  # from Last
 materials_magic_level = deque(int(x) for x in input().split())  # from First
 
 toys = {
-    "Doll": 150,
-    "Wooden train": 250,
-    "Teddy bear": 300,
-    "Bicycle": 400
+    150: "Doll",
+    250: "Wooden train",
+    300: "Teddy bear",
+    400: "Bicycle",
 }
 
 toys_crafted = {}
@@ -18,11 +18,11 @@ while boxes_of_materials and materials_magic_level:
 
     total_magic_level = box * magic_level
 
-    if total_magic_level in toys.values():
-        toy_crafted = "".join([i for i in toys if toys[i] == total_magic_level])
+    if total_magic_level in toys:
+        toy_crafted = toys[total_magic_level]
         toys_crafted[toy_crafted] = toys_crafted.get(toy_crafted, 0) + 1
 
-    elif total_magic_level not in toys.values() and total_magic_level > 0:
+    elif total_magic_level not in toys and total_magic_level > 0:
         boxes_of_materials.append(box + 15)
 
     elif total_magic_level < 0:
