@@ -25,11 +25,11 @@ while boxes_of_materials and materials_magic_level:
     elif total_magic_level not in toys.values() and total_magic_level > 0:
         boxes_of_materials.append(box + 15)
 
-    if total_magic_level < 0:
+    elif total_magic_level < 0:
         sum_values = box + magic_level
         boxes_of_materials.append(sum_values)
 
-    elif total_magic_level == 0:
+    else:
         if box != 0:
             boxes_of_materials.append(box)
         if magic_level != 0:
