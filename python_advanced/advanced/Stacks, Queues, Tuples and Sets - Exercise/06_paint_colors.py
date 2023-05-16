@@ -35,8 +35,3 @@ for el in find_colors:
 
 
 print(find_colors)
-
-
-
-
-
