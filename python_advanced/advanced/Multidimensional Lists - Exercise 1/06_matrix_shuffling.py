@@ -20,14 +20,10 @@ while True:
         break
 
     if valid_input(data, command):
-        first_el_start_idx, first_el_end_idx = data[:2]
-        second_el_start_idx, second_el_end_idx = data[2:]
+        row1, col1, row2, col2 = data
 
-        first_el = matrix[first_el_start_idx][first_el_end_idx]
-        second_el = matrix[second_el_start_idx][second_el_end_idx]
-
-        matrix[first_el_start_idx][first_el_end_idx], matrix[second_el_start_idx][second_el_end_idx] = \
-            matrix[second_el_start_idx][second_el_end_idx], matrix[first_el_start_idx][first_el_end_idx]
+        matrix[row1][col1], matrix[row2][col2] = \
+            matrix[row2][col2], matrix[row1][col1]
 
         for el in matrix:
             print(*el)
