@@ -14,12 +14,10 @@ rows, columns = [int(x) for x in input().split()]
 matrix = [input().split() for _ in range(rows)]
 
 while True:
-    command, *data = input().split()
+    command, *data = [int(x) if x.isdigit() else x for x in input().split()]
 
     if command == "END":
         break
-
-    data = [int(i) for i in data if i.isdigit()]
 
     if valid_input(data, command):
         first_el_start_idx, first_el_end_idx = data[:2]
