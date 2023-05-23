@@ -44,8 +44,7 @@ for row in range(SIZE):
     if "A" in field[row]:
         my_pos = [row, field[row].index("A")]
 
-    if "x" in field[row]:
-        total_targets += field[row].count("x")
+    total_targets += field[row].count("x")
 
 
 for _ in range(int(input())):
