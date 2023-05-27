@@ -34,14 +34,3 @@ while tasks:
 
 print("Congratulations, all tasks have been completed! Rubber ducks rewarded: ")
 print(*[f"{duck}: {value}" for duck, value in ducks_data.items()], sep="\n")
-
-
-
-
-
-
-
-
-
-
-
