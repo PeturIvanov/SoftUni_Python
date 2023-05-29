@@ -29,18 +29,10 @@ for difficulty_level, peak_name in peaks_info.items():
 
 if len(conquered_peaks) == len(peaks_info):
     print("Alex did it! He climbed all top five Pirin peaks in one week -> @FIVEinAWEEK")
-    
+
 else:
     print("Alex failed! He has to organize his journey better next time -> @PIRINWINS")
 
 if conquered_peaks:
     print(f"Conquered peaks: ")
     print('\n'.join(conquered_peaks))
-
-
-
-
-
-
-
-
