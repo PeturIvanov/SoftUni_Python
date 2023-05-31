@@ -8,6 +8,7 @@ file_name = "even_lines_.txt"
 file_path = os.path.join(root_path, file_name)
 
 pattern = r"[\.\,\?\-\!]"
+
 with open(file_path, "r") as file:
     file_content = file.read()
     file_content = re.sub(pattern, "@", file_content)
