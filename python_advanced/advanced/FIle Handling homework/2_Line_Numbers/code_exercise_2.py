@@ -9,7 +9,7 @@ text_file_path = os.path.join(root_path, file_name)
 
 output_text = os.path.join(root_path, "output.txt")
 
-with open(text_file_path, "r+") as file:
+with open(text_file_path, "r") as file:
 
     text_content = [line for line in file.read().split("\n") if line]
 
