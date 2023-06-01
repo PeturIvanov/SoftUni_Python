@@ -3,15 +3,14 @@ import string
 
 root_path = os.path.dirname(os.path.abspath(__file__))
 
-file_name = "text.txt"
+file_name = "txt_files/text.txt"
 
 text_file_path = os.path.join(root_path, file_name)
 
-output_text = os.path.join(root_path, "output.txt")
+output_text = os.path.join(root_path, "txt_files/output.txt")
 
 with open(text_file_path, "r") as file:
-
-    text_content = [line for line in file.read().split("\n") if line]
+    text_content = file.readlines()
 
 with open(output_text, "w") as output:
 
@@ -21,6 +20,6 @@ with open(output_text, "w") as output:
 
         letters_count = len([char for char in line if char.isalpha()])
 
-        output.writelines(f"Line {i + 1}: {line} ({letters_count})({punctuation_marks_count})\n")
+        output.write(f"Line {i + 1}: {line[:-1]} ({letters_count})({punctuation_marks_count})\n")
 
 
