@@ -1,7 +1,7 @@
 import os
 
 
-def directory_files(dir_name):
+def directory_files(dir_name, level=0):
 
     for file_name in os.listdir(dir_name):
         file_path = os.path.join(dir_name, file_name)
@@ -14,8 +14,8 @@ def directory_files(dir_name):
 
             extensions_data[extension].append(file_name)
 
-        elif os.path.isdir(file_path):
-            directory_files(file_path)
+        elif os.path.isdir(file_path) and level < 1:
+            directory_files(file_path, level + 1)
 
 
 directory = input()
