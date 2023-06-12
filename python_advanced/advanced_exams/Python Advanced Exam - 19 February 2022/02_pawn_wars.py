@@ -1,6 +1,3 @@
-from math import ceil
-
-
 def is_attack_possible(white_pos, black_pos):
     if (white_pos[1] + 1 == black_pos[1]) or (white_pos[1] - 1 == black_pos[1]):
         return True
