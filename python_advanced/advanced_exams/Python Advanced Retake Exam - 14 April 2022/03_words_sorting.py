@@ -1,8 +1,5 @@
 def words_sorting(*words):
-    unsorted_dict = {}
-
-    for word in words:
-        unsorted_dict[word] = sum([ord(char) for char in word])
+    unsorted_dict = {word: sum(map(ord, word)) for word in words}
 
     if sum(unsorted_dict.values()) % 2 == 0:
         unsorted_dict = sorted(unsorted_dict.items(), key=lambda x: x[0])
