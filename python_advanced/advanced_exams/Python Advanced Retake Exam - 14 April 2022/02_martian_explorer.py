@@ -46,13 +46,15 @@ while commands:
 
     r, c = is_out(r, c)
 
-    if field[r][c] in deposits_data:
+    position = field[r][c]
 
-        deposits_data[field[r][c]][1] += 1
+    if position in deposits_data:
 
-        print(f"{deposits_data[field[r][c]][0]} deposit found at ({r}, {c})")
+        deposits_data[position][1] += 1
 
-    elif field[r][c] == "R":
+        print(f"{deposits_data[position][0]} deposit found at ({r}, {c})")
+
+    elif position == "R":
         print(f"Rover got broken at ({r}, {c})")
         break
 
