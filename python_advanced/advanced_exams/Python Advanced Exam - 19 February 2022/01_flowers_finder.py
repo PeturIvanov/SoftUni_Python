@@ -18,6 +18,7 @@ while volews and consonants:
         if not words_to_find[word]:
             print(f"Word found: {word}")
             break
+            
     else:
         continue
 
