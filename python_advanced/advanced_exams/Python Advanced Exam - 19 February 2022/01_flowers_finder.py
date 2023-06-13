@@ -5,26 +5,25 @@ consonants = deque(input().split())
 
 words_to_find = {"rose": "rose", "tulip": "tulip", "lotus": "lotus", "daffodil": "daffodil"}
 
-flag = False
 
-while volews and consonants and not flag:
+while volews and consonants:
     current_volew = volews.popleft()
     current_consonants = consonants.pop()
 
-    for word in words_to_find.keys():
+    for word in words_to_find:
+        words_to_find[word] = words_to_find[word].replace(current_volew, "")
 
-        if current_volew in word:
-            words_to_find[word] = words_to_find[word].replace(current_volew, "")
-
-        if current_consonants in word:
-            words_to_find[word] = words_to_find[word].replace(current_consonants, "")
+        words_to_find[word] = words_to_find[word].replace(current_consonants, "")
 
         if not words_to_find[word]:
             print(f"Word found: {word}")
-            flag = True
             break
+    else:
+        continue
 
-if not flag:
+    break
+
+else:
     print("Cannot find any word!")
 
 if volews:
