@@ -27,10 +27,10 @@ else:
     print("Cannot find any word!")
 
 if volews:
-    print(f"Vowels left: {' '.join([char for char in volews])}")
+    print(f"Vowels left: {' '.join(volews)}")
 
 if consonants:
-    print(f"Consonants left: {' '.join([char for char in consonants])}")
+    print(f"Consonants left: {' '.join(consonants)}")
 
 
 
