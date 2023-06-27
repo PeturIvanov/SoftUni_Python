@@ -9,7 +9,7 @@ class Cup:
 
     def status(self) -> int:
         free_space = self.size - self.quantity
-        
+
         return free_space
 
 
