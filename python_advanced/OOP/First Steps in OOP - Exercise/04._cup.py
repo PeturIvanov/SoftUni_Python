@@ -3,7 +3,7 @@ class Cup:
         self.size = size
         self.quantity = quantity
 
-    def fill(self, quantity) -> None:
+    def fill(self, quantity: int) -> None:
         if self.quantity + quantity <= self.size:
             self.quantity += quantity
 

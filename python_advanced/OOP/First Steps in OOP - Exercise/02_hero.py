@@ -3,7 +3,7 @@ class Hero:
         self.name = name
         self.health = health
 
-    def defend(self, damage) -> str:
+    def defend(self, damage: int) -> str:
 
         if self.health - damage <= 0:
             self.health = 0

@@ -12,7 +12,7 @@ class Employee:
     def get_annual_salary(self) -> int:
         return self.salary * Employee.MONTHS
 
-    def raise_salary(self, amount) -> int:
+    def raise_salary(self, amount: int) -> int:
         self.salary += amount
 
         return self.salary
