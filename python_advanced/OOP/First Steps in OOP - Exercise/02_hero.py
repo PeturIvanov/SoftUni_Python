@@ -3,7 +3,7 @@ class Hero:
         self.name = name
         self.health = health
 
-    def defend(self, damage):
+    def defend(self, damage) -> str:
 
         if self.health - damage <= 0:
             self.health = 0
@@ -12,7 +12,7 @@ class Hero:
         self.health -= damage
 
 
-    def heal(self, amount):
+    def heal(self, amount) -> None:
         self.health += amount
 
 
