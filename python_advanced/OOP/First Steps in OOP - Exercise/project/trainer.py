@@ -1,17 +1,17 @@
 from project.pokemon import Pokemon
 class Trainer:
-    def __init__(self, name):
+    def __init__(self, name: str):
         self.name = name
         self.pokemons = []
 
-    def add_pokemon(self, pokemon: Pokemon):
+    def add_pokemon(self, pokemon: Pokemon) -> str:
         if pokemon not in self.pokemons:
             self.pokemons.append(pokemon)
             return f"Caught {pokemon.pokemon_details()}"
 
         return "This pokemon is already caught"
 
-    def release_pokemon(self, pokemon_name):
+    def release_pokemon(self, pokemon_name) -> str:
         try:
             pokemon = [p for p in self.pokemons if p.name == pokemon_name][0]
         except IndexError:
@@ -21,7 +21,7 @@ class Trainer:
 
         return f"You have released {pokemon_name}"
 
-    def trainer_data(self):
+    def trainer_data(self) -> str:
         pokemons_data = '\n'.join([f"- {p.pokemon_details()}" for p in self.pokemons])
 
         return f"Pokemon Trainer {self.name}\n" + \
