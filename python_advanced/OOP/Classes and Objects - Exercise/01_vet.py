@@ -17,6 +17,7 @@ class Vet:
 
         return "Not enough space"
 
+
     def unregister_animal(self, animal_name: str) -> str:
         if animal_name in Vet.animals:
             Vet.animals.remove(animal_name)
