@@ -1,5 +1,5 @@
 from person.child import Child
-from person.person import Person
+from person.class_person import Person
 
 person = Person("Peter", 25)
 child = Child("Peter Junior", 5)
