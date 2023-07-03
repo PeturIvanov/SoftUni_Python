@@ -1,8 +1,8 @@
-from project.motorcycle import Motorcycle
+from need_for_speed.car import Car
 
 
-class RaceMotorcycle(Motorcycle):
-    fuel_consumption = 8
+class FamilyCar(Car):
+    fuel_consumption = Car.fuel_consumption
     DEFAULT_FUEL_CONSUMPTION = fuel_consumption
 
     def __init__(self, fuel, horse_power):

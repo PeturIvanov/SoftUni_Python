@@ -1,6 +1,6 @@
 # zero test
-from project.vehicle import Vehicle
-from project.family_car import FamilyCar
+from need_for_speed.vehicle import Vehicle
+from need_for_speed.family_car import FamilyCar
 import unittest
 
 vehicle = Vehicle(50, 150)
