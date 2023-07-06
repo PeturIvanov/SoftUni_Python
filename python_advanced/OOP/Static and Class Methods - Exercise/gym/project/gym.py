@@ -52,6 +52,4 @@ class Gym:
         equipment = self.__search_by_id(exercise.equipment_id, self.equipment)
 
 
-        result: List[str] = [str(subscription), str(customer), str(trainer), str(equipment), str(exercise)]
-
-        return "\n".join(result)
+        return f"{subscription}\n{customer}\n{trainer}\n{equipment}\n{exercise}"
