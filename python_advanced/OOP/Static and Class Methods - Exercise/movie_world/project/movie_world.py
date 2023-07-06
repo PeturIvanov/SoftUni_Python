@@ -70,3 +70,4 @@ class MovieWorld:
         customer.rented_dvds.remove(dvd)
 
         return f"{customer.name} has successfully returned {dvd.name}"
+    
