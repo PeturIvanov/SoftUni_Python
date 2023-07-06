@@ -30,3 +30,4 @@ class PhotoAlbum:
             result += "-" * 11 + "\n"
 
         return result
+
