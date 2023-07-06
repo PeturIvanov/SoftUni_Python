@@ -23,19 +23,10 @@ class PhotoAlbum:
             return "No more free slots"
 
     def display(self) -> str:
-        result = "-" * 11
-        result += "\n"
+        result = "-" * 11 + "\n"
 
         for page_index in range(len(self.photos)):
-
-            if self.photos[page_index]:
-                result += (' '.join(["[]" for _ in range(len(self.photos[page_index]))]))
-                result += "\n"
-
-            else:
-                result += "\n"
-
-            result += "-" * 11
-            result += "\n"
+            result += (' '.join(["[]" for _ in range(len(self.photos[page_index]))])) + "\n"
+            result += "-" * 11 + "\n"
 
         return result
