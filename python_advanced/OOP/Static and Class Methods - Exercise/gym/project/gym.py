@@ -43,17 +43,14 @@ class Gym:
     def subscription_info(self, subscription_id: int) -> str:
         subscription = self.__search_by_id(subscription_id, self.subscriptions)
 
-        customer_id = subscription.customer_id
-        customer = self.__search_by_id(customer_id, self.customers)
+        customer = self.__search_by_id(subscription.customer_id, self.customers)
 
-        trainer_id = subscription.trainer_id
-        trainer = self.__search_by_id(trainer_id, self.trainers)
+        trainer = self.__search_by_id(subscription.trainer_id, self.trainers)
 
-        exercise_id = subscription.exercise_id
-        exercise = self.__search_by_id(exercise_id, self.plans)
+        exercise = self.__search_by_id(subscription.exercise_id, self.plans)
 
-        equipment_id = exercise.equipment_id
-        equipment = self.__search_by_id(equipment_id, self.equipment)
+        equipment = self.__search_by_id(exercise.equipment_id, self.equipment)
+
 
         result: List[str] = [str(subscription), str(customer), str(trainer), str(equipment), str(exercise)]
 
