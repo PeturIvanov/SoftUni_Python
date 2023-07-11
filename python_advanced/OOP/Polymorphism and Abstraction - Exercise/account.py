@@ -17,8 +17,8 @@ class Account:
     def __len__(self) -> int:
         return len(self.transactions)
 
-    def __getitem__(self, item):
-        return self.transactions[item]
+    def __getitem__(self, idx: int):
+        return self.transactions[idx]
 
     def __lt__(self, other) -> bool:
         return self.balance < other.balance
@@ -30,8 +30,7 @@ class Account:
         return self.balance == other.balance
 
     def __add__(self, other):
-        new_acc = Account(f"{self.owner}&{other.owner}",
-                       self.starting_amount + other.starting_amount)
+        new_acc = Account(f"{self.owner}&{other.owner}", self.starting_amount + other.starting_amount)
         new_acc.transactions = self.transactions + other.transactions
 
         return new_acc
