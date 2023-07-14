@@ -61,3 +61,9 @@ class Account:
             raise ValueError("please use int for amount")
 
         return self.handle_transaction(amount)
+
+account = Account("az", 100)
+account.add_transaction(50)
+print(account.balance)
+for t in account:
+    print(t)
