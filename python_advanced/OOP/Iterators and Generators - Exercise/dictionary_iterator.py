@@ -19,7 +19,6 @@ class dictionary_iter:
         return self.keys[self.index], self.values[self.index]
 
 
-
 result = dictionary_iter({1: "1", 2: "2"})
 for x in result:
     print(x)
