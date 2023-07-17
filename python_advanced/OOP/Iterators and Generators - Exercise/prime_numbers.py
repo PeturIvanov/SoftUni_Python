@@ -6,8 +6,8 @@ def get_primes(numbers: List[int]):
         if n <= 1:
             continue
 
-        for divider in range(2, n + 1):
-            if divider != n and n % divider == 0:
+        for divider in range(2, n):
+            if n % divider == 0:
                 break
 
         else:
