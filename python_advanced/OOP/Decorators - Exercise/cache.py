@@ -17,5 +17,5 @@ def fibonacci(n):
         return fibonacci(n - 1) + fibonacci(n - 2)
 
 
-print(fibonacci(4))
+fibonacci(4)
 print(fibonacci.log)
