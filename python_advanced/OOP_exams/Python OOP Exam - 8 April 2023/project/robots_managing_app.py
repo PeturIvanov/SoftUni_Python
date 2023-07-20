@@ -1,4 +1,4 @@
-from typing import List, Dict
+from typing import List
 
 from project.robots.base_robot import BaseRobot
 from project.robots.female_robot import FemaleRobot
