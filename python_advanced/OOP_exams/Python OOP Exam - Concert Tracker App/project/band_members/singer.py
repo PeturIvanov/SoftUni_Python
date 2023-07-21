@@ -10,3 +10,9 @@ class Singer(Musician):
                 "sing low pitch notes",
                 ]
 
+    @property
+    def skills_needed(self):
+        return {"Rock": ["sing high pitch notes"],
+                "Metal": ["sing low pitch notes"],
+                "Jazz": ["sing high pitch notes", "sing low pitch notes"]}
+
