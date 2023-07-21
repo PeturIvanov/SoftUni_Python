@@ -33,6 +33,11 @@ class Musician(ABC):
     def _available_skills(self):
         ...
 
+    @property
+    @abstractmethod
+    def skills_needed(self):
+        ...
+
     def learn_new_skill(self, new_skill: str) -> str:
         if new_skill not in self._available_skills:
             raise ValueError(f"{new_skill} is not a needed skill!")
