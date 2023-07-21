@@ -133,7 +133,7 @@ class Tests(unittest.TestCase):
     def test_zoo_hire_worker_no_space(self):
         z = Zoo("Some Zoo", 1500, 1, 0)
         res = z.hire_worker(Vet("I am Vet", 20, 500))
-        self.assertEqual(res, "Not enough space for worker")
+        self.assertEqual(res, "Not enough space for test_worker")
         self.assertEqual(len(z.workers), 0)
         self.assertEqual(z._Zoo__workers_capacity, 0)
 

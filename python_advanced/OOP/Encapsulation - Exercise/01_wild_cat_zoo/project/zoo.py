@@ -54,7 +54,7 @@ class Zoo:
 
     def hire_worker(self, worker: Worker) -> str or None:
         if self.workers_capacity == len(self.workers):
-            return "Not enough space for worker"
+            return "Not enough space for test_worker"
 
         self.workers.append(worker)
 

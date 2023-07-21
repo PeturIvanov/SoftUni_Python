@@ -9,3 +9,11 @@ class Guitarist(Musician):
                 "play rock",
                 "play jazz"
                 ]
+
+
+
+    @property
+    def skills_needed(self):
+        return {"Rock": "play rock",
+                "Metal": "play metal",
+                "Jazz": "play jazz"}

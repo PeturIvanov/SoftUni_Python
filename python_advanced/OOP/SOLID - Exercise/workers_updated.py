@@ -19,7 +19,7 @@ class Eatable(ABC):
 class Worker(Workable, Eatable):
     @staticmethod
     def work():
-        print("I'm normal worker. I'm working.")
+        print("I'm normal test_worker. I'm working.")
 
     @staticmethod
     def eat():
@@ -29,7 +29,7 @@ class Worker(Workable, Eatable):
 class SuperWorker(Workable, Eatable):
     @staticmethod
     def work():
-        print("I'm super worker. I work very hard!")
+        print("I'm super test_worker. I work very hard!")
 
     @staticmethod
     def eat():
@@ -53,26 +53,26 @@ class Manager(ABC):
 class BreakManager(Manager):
     def set_worker(self, worker):
         if not isinstance(worker, Eatable):
-            raise AssertionError(f"`worker` must be of type {Eatable}")
+            raise AssertionError(f"`test_worker` must be of type {Eatable}")
 
         self.worker = worker
 
     def lunch_break(self):
         if not self.worker:
-            raise AssertionError("You dont have worker!")
+            raise AssertionError("You dont have test_worker!")
 
         self.worker.eat()
 
 class WorkManager(Manager):
     def set_worker(self, worker):
         if not isinstance(worker, Workable):
-            raise AssertionError(f"`worker` must be of type {Workable}")
+            raise AssertionError(f"`test_worker` must be of type {Workable}")
 
         self.worker = worker
 
     def manage(self):
         if not self.worker:
-            raise AssertionError("You dont have worker!")
+            raise AssertionError("You dont have test_worker!")
 
         self.worker.work()
 
