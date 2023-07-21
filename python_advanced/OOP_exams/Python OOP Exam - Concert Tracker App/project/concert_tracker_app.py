@@ -22,11 +22,13 @@ class ConcertTrackerApp:
         musician = [m for m in collection if m.name == name]
         if musician:
             return musician[0]
+
     @staticmethod
     def _find_band_by_name(name: str, collection):
         band = [b for b in collection if b.name == name]
         if band:
             return band[0]
+
     @staticmethod
     def _find_concert_by_place(place: str, collection):
         concert = [c for c in collection if c.place == place]
@@ -62,7 +64,7 @@ class ConcertTrackerApp:
         concert = self._find_concert_by_place(place, self.concerts)
 
         if concert:
-            raise Exception(f"{place} is already registered for {genre} concert!")
+            raise Exception(f"{place} is already registered for {concert.genre} concert!")
 
         new_concert = Concert(genre, audience, ticket_price, expenses, place)
         self.concerts.append(new_concert)
@@ -79,7 +81,6 @@ class ConcertTrackerApp:
             raise Exception(f"{band_name} isn't a band!")
 
         band.members.append(musician)
-        self.musicians.remove(musician) # TODO try with
         return f"{musician_name} was added to {band_name}."
 
     def remove_musician_from_band(self, musician_name: str, band_name: str) -> str:
@@ -92,8 +93,8 @@ class ConcertTrackerApp:
             raise Exception(f"{musician_name} isn't a member of {band_name}!")
 
         band.members.remove(musician)
-        self.musicians.append(musician) #TODO try with
         return f"{musician_name} was removed from {band_name}."
+
     @staticmethod
     def _find_singers(band: Band):
         return [member for member in band.members if member.__class__.__name__ == "Singer"]
