@@ -108,43 +108,21 @@ class ConcertTrackerApp:
         return [member for member in band.members if member.__class__.__name__ == "Guitarist"]
 
     @staticmethod
-    def _skill_requirements(singers, drummers, guitarists, skills):
+    def _skill_requirements(singers, drummers, guitarists, concert_genre):
         for drummer in drummers:
-            if skills["Drummer"] not in drummer.skills:
+            if drummer.skills_needed[concert_genre] not in drummer.skills:
                 return False
 
         for singer in singers:
-            for skill in skills["Singer"]:
+            for skill in singer.skills_needed[concert_genre]:
                 if skill not in singer.skills:
                     return False
 
         for guitarist in guitarists:
-            if skills["Guitarist"] not in guitarist.skills:
+            if guitarist.skills_needed[concert_genre] not in guitarist.skills:
                 return False
 
         return True
-
-    def _start_rock_concert(self, singers, drummers, guitarists, band) -> None:
-        skills_needed = {"Drummer": "play the drums with drumsticks",
-                         "Singer": ["sing high pitch notes"],
-                         "Guitarist": "play rock"}
-
-        if not self._skill_requirements(singers, drummers, guitarists, skills_needed):
-            raise Exception(f"The {band.name} band is not ready to play at the concert!")
-
-    def _start_metal_concert(self, singers, drummers, guitarists, band) -> None:
-        skills_needed = {"Drummer": "play the drums with drumsticks",
-                         "Singer": ["sing low pitch notes"],
-                         "Guitarist": "play metal"}
-        if not self._skill_requirements(singers, drummers, guitarists, skills_needed):
-            raise Exception(f"The {band.name} band is not ready to play at the concert!")
-
-    def _start_jazz_concert(self, singers, drummers, guitarists, band) -> None:
-        skills_needed = {"Drummer": "play the drums with drum brushes",
-                         "Singer": ["sing high pitch notes", "sing low pitch notes"],
-                         "Guitarist": "play jazz"}
-        if not self._skill_requirements(singers, drummers, guitarists, skills_needed):
-            raise Exception(f"The {band.name} band is not ready to play at the concert!")
 
     def start_concert(self, concert_place: str, band_name: str) -> str:
         band = self._find_band_by_name(band_name, self.bands)
@@ -157,17 +135,10 @@ class ConcertTrackerApp:
         if not singers or not drummers or not guitarists:
             raise Exception(f"{band_name} can't start the concert because it doesn't have enough members!")
 
-        if concert.genre == "Rock":
-            self._start_rock_concert(singers, drummers, guitarists, band)
+        if not self._skill_requirements(singers, drummers, guitarists, concert.genre):
+            raise Exception(f"The {band.name} band is not ready to play at the concert!")
 
-        if concert.genre == "Metal":
-            self._start_metal_concert(singers, drummers, guitarists, band)
-
-        if concert.genre == "Jazz":
-            self._start_jazz_concert(singers, drummers, guitarists, band)
 
         profit = (concert.audience * concert.ticket_price) - concert.expenses
 
         return f"{band_name} gained {profit:.2f}$ from the {concert.genre} concert in {concert_place}."
-
-
