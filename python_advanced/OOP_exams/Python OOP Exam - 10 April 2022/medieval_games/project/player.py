@@ -50,3 +50,10 @@ class Player:
             raise ValueError("Stamina not valid!")
         self.__stamina = value
 
+    def reduce_stamina_on_new_day(self):
+        stamina_reduce = self.age * 2
+        if self.stamina - stamina_reduce < Player.MIN_STAMINA:
+            self.stamina = Player.MIN_STAMINA
+        else:
+            self.stamina -= stamina_reduce
+
