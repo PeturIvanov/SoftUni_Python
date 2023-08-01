@@ -100,7 +100,7 @@ class SpaceStation:
 
     def report(self):
         astronauts = "\n".join([a.info() for a in self.astronaut_repository.astronauts])
-        
+
         return f"{SpaceStation.missions_complete} successful missions!\n" \
                f"{SpaceStation.missions_failed} missions were not completed!\n" \
                f"Astronauts' info:\n" \
