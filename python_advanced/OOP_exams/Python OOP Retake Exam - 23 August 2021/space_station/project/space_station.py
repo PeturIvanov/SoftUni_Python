@@ -36,10 +36,12 @@ class SpaceStation:
         new_planet = Planet(name)
         new_planet.adding_items(items)
         self.planet_repository.add(new_planet)
+
         return f"Successfully added Planet: {name}."
 
     def retire_astronaut(self, name: str):
         astronaut = self.astronaut_repository.find_by_name(name)
+
         if astronaut is None:
             raise Exception(f"Astronaut {name} doesn't exist!")
 
@@ -52,11 +54,13 @@ class SpaceStation:
 
     def send_on_mission(self, planet_name: str):
         planet = self.planet_repository.find_by_name(planet_name)
+
         if planet is None:
             raise Exception("Invalid planet name!")
 
         astronauts = self.find_astronauts_for_mission()
         mission_result = self.collecting_items(planet, astronauts)
+
         return mission_result
 
     @staticmethod
@@ -81,7 +85,9 @@ class SpaceStation:
 
     def find_astronauts_for_mission(self):
         list_of_astronauts = []
+
         for astronaut in sorted(self.astronaut_repository.astronauts, key=lambda x: -x.oxygen):
+
             if astronaut.oxygen > 30:
                 list_of_astronauts.append(astronaut)
             if len(list_of_astronauts) == 5:
@@ -94,6 +100,7 @@ class SpaceStation:
 
     def report(self):
         astronauts = "\n".join([a.info() for a in self.astronaut_repository.astronauts])
+        
         return f"{SpaceStation.missions_complete} successful missions!\n" \
                f"{SpaceStation.missions_failed} missions were not completed!\n" \
                f"Astronauts' info:\n" \
