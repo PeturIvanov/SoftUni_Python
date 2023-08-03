@@ -106,16 +106,3 @@ class MovieApp:
     def _dislike_validator(user: User, movie: Movie):
         if movie not in user.movies_liked:
             raise Exception(f"{user.username} has not liked the movie {movie.title}!")
-
-
-
-
-
-
-
-
-
-
-
-
-
