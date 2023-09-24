@@ -4,8 +4,9 @@ SELECT
 	em.department_id,
 	concat(ad.number, ' ', ad.street) AS "Address"
 FROM
-	employees AS em,
-	addresses AS ad
-WHERE
-	em.address_id = ad.id
+	employees AS em
+JOIN
+    addresses AS ad
+        ON
+    em.address_id = ad.id
 ORDER BY "Address";

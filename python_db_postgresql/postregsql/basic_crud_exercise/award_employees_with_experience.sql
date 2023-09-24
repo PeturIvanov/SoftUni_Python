@@ -1,4 +1,5 @@
-UPDATE employees
+UPDATE
+    employees
 SET
 	salary = salary + 1500,
 	job_title = concat('Senior', ' ', job_title)

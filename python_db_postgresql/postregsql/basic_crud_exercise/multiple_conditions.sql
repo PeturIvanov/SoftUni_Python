@@ -4,4 +4,6 @@ SELECT
 FROM
 	addresses
 WHERE
-	id BETWEEN 50 AND 100 OR "number" < 1000;
+	id BETWEEN 50 AND 100
+        OR
+    "number" < 1000;
