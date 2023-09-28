@@ -13,4 +13,6 @@ FROM
 	users
 GROUP BY
 	initials
-ORDER BY user_count DESC, initials;
+ORDER BY
+    user_count DESC,
+    initials;

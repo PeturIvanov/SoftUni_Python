@@ -9,8 +9,10 @@ SELECT concat_ws(' ',
                  "length",
                  'kilometers long.'
            ) AS "River Information"
-FROM rivers
-ORDER BY river_name;
+FROM
+    rivers
+ORDER BY
+    river_name;
 
 SELECT *
 FROM view_river_info;
