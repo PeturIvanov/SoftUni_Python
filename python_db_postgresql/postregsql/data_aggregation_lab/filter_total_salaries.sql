@@ -9,3 +9,4 @@ HAVING
 	SUM(salary) < 4200
 ORDER BY
 	department_id
+;
