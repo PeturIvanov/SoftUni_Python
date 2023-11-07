@@ -36,6 +36,9 @@ class Product(models.Model):
 
     barcode = models.PositiveIntegerField()
 
+    def __str__(self):
+        return self.name
+
 
 
 
