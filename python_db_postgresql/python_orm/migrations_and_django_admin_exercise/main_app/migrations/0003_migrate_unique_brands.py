@@ -13,6 +13,12 @@ def create_unique_brands(apps, schema_editor):
         unique_brands.objects.using(db_alias).create(brand_name=brand_name)
 
 
+def delete_unique_brands(apps, schema_editor):
+    unique_brands = apps.get_model("main_app", "UniqueBrands")
+
+    unique_brands.objects.all().delete()
+
+
 class Migration(migrations.Migration):
 
     dependencies = [
@@ -20,5 +26,5 @@ class Migration(migrations.Migration):
     ]
 
     operations = [
-        migrations.RunPython(create_unique_brands)
+        migrations.RunPython(create_unique_brands, reverse_code=delete_unique_brands)
     ]

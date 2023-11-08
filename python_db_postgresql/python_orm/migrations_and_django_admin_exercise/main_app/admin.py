@@ -62,23 +62,20 @@ class StudentAdmin(admin.ModelAdmin):
     )
 
     fieldsets = (
-        (
-            "Personal Information", {
-                "fields": (
-                    "first_name",
-                    "last_name",
-                    "age",
-                    "date_of_birth"
-                )
-            }
-        ),
-        (
-            "Academic Information", {
-                "fields": (
-                    "grade",
-                )
-            }
-        )
+        ("Personal Information", {
+            "fields": (
+                "first_name",
+                "last_name",
+                "age",
+                "date_of_birth"
+            )
+        }),
+        ("Academic Information", {
+            "fields": (
+                "grade",
+            ),
+            "classes": ["collapse"],
+        }),
     )
 
 
@@ -104,16 +101,14 @@ class SupplierAdmin(admin.ModelAdmin):
     list_per_page = 20
 
     fieldsets = (
-        (
-            "Information", {
-                "fields": (
-                    "name",
-                    "contact_person",
-                    "email",
-                    "address"
-                )
-            }
-        ),
+        ("Information", {
+            "fields": (
+                "name",
+                "contact_person",
+                "email",
+                "address"
+            )
+        }),
     )
 
 
@@ -137,51 +132,22 @@ class CourseAdmin(admin.ModelAdmin):
     )
 
     fieldsets = (
-        (
-            "Course Information", {
-                "fields": (
-                    "title",
-                    "lecturer",
-                    "price",
-                    "start_date",
-                    "is_published"
-                )
-            }
-        ),
-        (
-            "Description", {
-                "fields": (
-                    "description",
-                )
-            }
-        )
+        ("Course Information", {
+            "fields": (
+                "title",
+                "lecturer",
+                "price",
+                "start_date",
+                "is_published"
+            )
+        }),
+        ("Description", {
+            "fields": (
+                "description",
+            )
+        }),
     )
 
     readonly_fields = (
         "start_date",
     )
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
