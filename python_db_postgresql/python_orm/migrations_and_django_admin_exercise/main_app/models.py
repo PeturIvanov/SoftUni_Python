@@ -191,7 +191,7 @@ class Smartphone(models.Model):
 
 
 class Order(models.Model):
-    status_options = (
+    STATUS_CHOICES = (
         ('Pending', 'Pending'),
         ('Completed', 'Completed'),
         ('Cancelled', 'Cancelled')
@@ -209,7 +209,7 @@ class Order(models.Model):
 
     status = models.CharField(
         max_length=30,
-        choices=status_options,
+        choices=STATUS_CHOICES,
     )
 
     amount = models.PositiveIntegerField(
