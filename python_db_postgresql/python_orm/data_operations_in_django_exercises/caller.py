@@ -195,10 +195,19 @@ def delete_last_room():
 
 
 def update_characters():
-    Character.objects.filter(class_name='Mage').update(level=F('level') + 3, intelligence=F('intelligence') - 7)
-    Character.objects.filter(class_name='Warrior').update(hit_points=F('hit_points') / 2, dexterity=F('dexterity') + 4)
-    Character.objects.filter(class_name='Scout').update(inventory='The inventory is empty')
-    Character.objects.filter(class_name='Assassin').update(inventory='The inventory is empty')
+    Character.objects.filter(class_name='Mage').update(
+        level=F('level') + 3,
+        intelligence=F('intelligence') - 7
+    )
+
+    Character.objects.filter(class_name='Warrior').update(
+        hit_points=F('hit_points') / 2,
+        dexterity=F('dexterity') + 4
+    )
+
+    Character.objects.filter(class_name__in=['Scout', 'Assassin']).update(
+        inventory='The inventory is empty'
+    )
 
 
 def fuse_characters(first_character: Character, second_character: Character):
@@ -209,7 +218,6 @@ def fuse_characters(first_character: Character, second_character: Character):
     dexterity = (first_character.dexterity + second_character.dexterity) * 1.4
     intelligence = (first_character.intelligence + second_character.intelligence) * 1.5
     hit_points = (first_character.hit_points + second_character.hit_points)
-    inventory = None
 
     if first_character.class_name in ['Mage', 'Scout']:
         inventory = 'Bow of the Elven Lords, Amulet of Eternal Wisdom'
@@ -225,7 +233,7 @@ def fuse_characters(first_character: Character, second_character: Character):
         dexterity=dexterity,
         intelligence=intelligence,
         hit_points=hit_points,
-        inventory=inventory
+        inventory=inventory,
     )
 
     first_character.delete()
@@ -233,7 +241,7 @@ def fuse_characters(first_character: Character, second_character: Character):
 
 
 def grand_dexterity():
-    Character.objects.all().update(dexteriry=30)
+    Character.objects.all().update(dexterity=30)
 
 
 def grand_intelligence():
