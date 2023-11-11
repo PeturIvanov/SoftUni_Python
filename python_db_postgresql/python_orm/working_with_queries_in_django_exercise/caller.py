@@ -11,7 +11,7 @@ from main_app.models import ChessPlayer, Meal, Dungeon, Workout, ArtworkGallery
 def show_highest_rated_art():
     highest_rated_art = ArtworkGallery.objects.order_by('-rating', 'id').first()
 
-    return f'{highest_rated_art.art_name} is the highest-rated art with {highest_rated_art.rating} rating!'
+    return f'{highest_rated_art.art_name} is the highest-rated art with a {highest_rated_art.rating} rating!'
 
 
 def bulk_create_arts(first_art: ArtworkGallery, second_art: ArtworkGallery):
