@@ -8,6 +8,7 @@ django.setup()
 # Import your models
 from main_app.models import Author, Book, Review
 
+
 # Create and check models
 def add_records_to_database():
     authors = [
@@ -59,3 +60,133 @@ def add_records_to_database():
 
 # Run and print your queries
 # print(add_records_to_database())
+
+
+def find_books_by_genre_and_language(genre: str, language: str):
+    return Book.objects.filter(genre=genre, language=language)
+
+
+# print(find_books_by_genre_and_language("Romance", "English"))
+# print(find_books_by_genre_and_language("Poetry", "Spanish"))
+# print(find_books_by_genre_and_language("Mystery", "English"))
+
+
+def find_authors_nationalities():
+    authors = Author.objects.filter(nationality__isnull=False)
+    result = [
+            f'{author.first_name} {author.last_name} is {author.nationality}'
+            for author in authors
+        ]
+
+    return '\n'.join(result)
+
+
+# print(find_authors_nationalities())
+
+
+def order_books_by_year():
+    books = Book.objects.all().order_by('publication_year', 'title')
+    result = [
+        f'{book.publication_year} year: {book.title} by {book.author}'
+        for book in books
+    ]
+
+    return '\n'.join(result)
+
+
+# print(order_books_by_year())
+
+
+def delete_review_by_id(review_id: int):
+    review = Review.objects.get(id=review_id)
+    review.delete()
+
+    return f'Review by {review.reviewer_name} was deleted'
+
+
+def filter_authors_by_nationalities(nationality: str):
+    authors = Author.objects.filter(nationality=nationality
+                                    ).order_by('first_name', 'last_name')
+
+    result = [
+        f'{author.biography}'
+        if author.biography
+        else f'{author.first_name} {author.last_name}'
+
+        for author in authors
+    ]
+
+    return '\n'.join(result)
+
+
+# print("American authors:")
+# print(filter_authors_by_nationalities('American'))
+# print()
+# print("British authors:")
+# print(filter_authors_by_nationalities('British'))
+# print()
+# print("Authors with no nationalities:")
+# print(filter_authors_by_nationalities(None))
+
+
+def filter_authors_by_birth_year(start_year: int, end_year: int):
+    authors = Author.objects.filter(birth_date__year__range=(start_year, end_year)).order_by('-birth_date')
+
+    result = [
+        f'{author.birth_date}: {author.first_name} {author.last_name}'
+        for author in authors
+    ]
+
+    return '\n'.join(result)
+
+
+# print("Authors born between 1980 and 2000:")
+# print(filter_authors_by_birth_year(1980, 2000))
+# print()
+# print("Authors born between 1950 and 1960:")
+# print(filter_authors_by_birth_year(1950, 1960))
+# print()
+# print("Authors born between 2000 and 2010:")
+# print(filter_authors_by_birth_year(2000, 2010))
+
+
+def change_reviewer_name(reviewer_name: str, new_name: str):
+    Review.objects.filter(reviewer_name=reviewer_name).update(reviewer_name=new_name)
+
+    return Review.objects.all()
+
+
+# print("Change Alice Johnson to A.J.:")
+# print(change_reviewer_name("Alice Johnson", "A.J."))
+# print()
+# print("Change Bob Wilson to Bobby W.:")
+# print(change_reviewer_name("Bob Wilson", "Bobby W."))
+# print()
+# print("Change A.J. to A. Johnson:")
+# print(change_reviewer_name("A.J.", "A. Johnson"))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
