@@ -1,6 +1,4 @@
 from django.contrib import admin
-from django.db import models
-
 from main_app.models import Car
 
 

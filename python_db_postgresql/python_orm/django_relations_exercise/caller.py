@@ -46,7 +46,13 @@ def get_songs_by_artist(artist_name: str):
 
 
 def remove_song_from_artist(artist_name: str, song_title: str):
-    Artist.objects.get(name=artist_name).songs.get(title=song_title).delete()
+    artist = Artist.objects.get(name=artist_name)
+    song = Song.objects.get(title=song_title)
+
+    artist.songs.remove(song)
+
+
+remove_song_from_artist('Daniel Di Angelo', 'Loyalty')
 
 
 def calculate_average_rating_for_product_by_name(product_name: str):
