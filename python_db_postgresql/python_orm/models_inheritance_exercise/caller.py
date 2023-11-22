@@ -10,4 +10,3 @@ django.setup()
 
 from main_app.models import Mage, Necromancer, UserProfile, Message, Student, CreditCard, Hotel, Room, \
     RegularReservation, SpecialReservation
-

@@ -267,7 +267,7 @@ class BaseReservation(models.Model):
 
     def calculate_total_cost(self):
         total_cost = self.reservation_period() * self.room.price_per_night
-        return round(total_cost, 1)
+        return round(total_cost, 2)
 
     def is_available(self, start_date, end_date):
         reservations = self.__class__.objects.filter(
