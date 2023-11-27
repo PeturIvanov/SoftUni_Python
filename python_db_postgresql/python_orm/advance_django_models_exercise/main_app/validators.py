@@ -1,3 +1,5 @@
+import re
+
 from django.core.exceptions import ValidationError
 
 
@@ -19,3 +21,6 @@ def phone_number_validator(value):
     if not value.startswith('+359') or not last_nine_digits.isdigit() or len(last_nine_digits) != 9:
         raise ValidationError("Phone number must start with '+359' followed by 9 digits")
 
+    # Solution with regex
+    # if not re.Match(r'^\+359\d{9}$', value):
+    #     raise ValidationError("Phone number must start with '+359' followed by 9 digits")
