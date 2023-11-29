@@ -2,7 +2,7 @@ import os
 from typing import List
 
 import django
-from django.db.models import Sum, Q
+from django.db.models import Sum, Q, F
 
 # Set up Django
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "orm_skeleton.settings")
@@ -121,33 +121,35 @@ def ordered_products_per_customer() -> str:
 
 # print(ordered_products_per_customer())
 
-#
-# def filter_products() -> str:
-#     query = Q(is_available=True) & Q(price__gt=3)
-#
-#     products = Product.objects.filter(query).order_by()
-#     pass
+
+def filter_products() -> str:
+    query = Q(is_available=True) & Q(price__gt=3)
+    products = Product.objects.filter(query).order_by('-price', 'name')
+
+    result = []
+
+    for product in products:
+        result.append(f"{product.name}: {product.price}lv.")
+
+    return '\n'.join(result)
 
 
+# print(filter_products())
 
 
+def give_discount() -> str:
+    query = Q(is_available=True) & Q(price__gt=3)
+    reduction = F('price') * 0.70
+    result = []
+
+    # set new price
+    Product.objects.filter(query).update(price=reduction)
+    products = Product.objects.filter(is_available=True).order_by('-price', 'name')
+
+    for product in products:
+        result.append(f"{product.name}: {product.price}lv.")
+
+    return '\n'.join(result)
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+print(give_discount())
